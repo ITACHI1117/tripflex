@@ -2,7 +2,13 @@ import { StyleSheet, Text, SafeAreaView, View, Image } from "react-native";
 import React from "react";
 import { ThemedText } from "@/components/ThemedText";
 
+// redirecting to the signInOptions Page for now
+import { router } from "expo-router";
+
 const OnBoardScreen = () => {
+  setTimeout(() => {
+    router.push("/SignInOptions");
+  }, 3000);
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Image
