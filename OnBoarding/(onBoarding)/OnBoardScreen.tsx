@@ -1,11 +1,17 @@
 import { StyleSheet, Text, SafeAreaView, View, Image } from "react-native";
 import React from "react";
 import { ThemedText } from "@/components/ThemedText";
+import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
+import { ThemedView } from "@/components/ThemedView";
+import { useColorScheme } from "@/hooks/useColorScheme";
+
 
 // redirecting to the signInOptions Page for now
 import { router } from "expo-router";
 
 const OnBoardScreen = () => {
+  const colorScheme = useColorScheme();
+
   setTimeout(() => {
     router.push("/SignInOptions");
   }, 3000);
@@ -42,7 +48,6 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white",
   },
   containImage: {
     height: 258,
