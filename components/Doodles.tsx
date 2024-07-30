@@ -6,7 +6,7 @@ export function Doodles() {
   return (
     <View style={{position:'absolute',display:'flex', width:'100%', height:'100%'}}> 
         <Image
-        style={[styles.doodle,{top: -110, right: -50,transform: [{rotate: '350deg' }, {scaleX: -1}],  }]}
+        style={[styles.doodle,{top: -110, right: -50,transform: [{rotate: '360deg' }, {scaleX: -1}],  }]}
         source={require('../assets/images/doodle.png')}
         ></Image>
          <Image

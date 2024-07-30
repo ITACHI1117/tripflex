@@ -5,6 +5,8 @@ export default function PassengerScreensLayout() {
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="Login" options={{ headerShown: false }} />
+      <Stack.Screen name="HomeScreen" options={{ headerShown: false }} />
       {/* <Stack.Screen name="+not-found" /> */}
     </Stack>
   );

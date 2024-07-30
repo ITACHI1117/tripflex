@@ -11,7 +11,7 @@ import {
     KeyboardAvoidingView,
     Platform,
   } from "react-native";
-  import { Link } from "expo-router";
+  import { Link, router } from "expo-router";
   import React, { useState } from "react";
   import { ThemedText } from "@/components/ThemedText";
   import { ThemedView } from "@/components/ThemedView";
@@ -22,9 +22,8 @@ import { Doodles } from "@/components/Doodles";
     const colorScheme = useColorScheme();
     const [text,setText] = useState<string>()
 
-    const BackgroundTextColor = colorScheme == 'light' ? "black" : 'white'
+     const BackgroundTextColor = colorScheme == 'light' ? "black" : 'white'
     const BackgroundColorInput = colorScheme== 'light' ? "transparent" : '#3F3D3D'
-
   
     return (
       <SafeAreaView style={styles.safeAreaConmtainer}>
@@ -39,10 +38,10 @@ import { Doodles } from "@/components/Doodles";
           // style={{ flex: 1, width: "100%" }}
         > 
         <View style={styles.container}>
-        <ThemedText type="title">Sign Up with us</ThemedText>
+        <ThemedText type="title">Welcome Back</ThemedText>
         <View style={styles.formContainer}>
           {/* Email */}
-          <ThemedText style={{fontSize:19}} type="defaultSemiBold">Email</ThemedText>
+        <ThemedText style={{fontSize:19}} type="defaultSemiBold">Email or Phone </ThemedText>
         <TextInput
         value={text}
         onChange={() => setText}
@@ -51,24 +50,7 @@ import { Doodles } from "@/components/Doodles";
         placeholder=""
         >
         </TextInput>
-        {/* Phone No */}
-        <ThemedText style={{fontSize:19, marginTop: 20}} type="defaultSemiBold">Phone no</ThemedText>
-        <View style={{display:'flex', flexDirection:'row', width:'100%'}}>
-        <TextInput
-        style={[styles.textInput,{width:'30%', marginRight: 20,color:BackgroundTextColor, backgroundColor:BackgroundColorInput}]}
-        placeholderTextColor={"gray"}
-        placeholder=""
-        // color="white"
-        >
-        </TextInput>
-        <TextInput
-        style={[styles.textInput,{width:'65%', marginRight: 20,color:BackgroundTextColor, backgroundColor:BackgroundColorInput}]}
-        placeholderTextColor={"gray"}
-        placeholder=""
-        // color="white"
-        >
-        </TextInput>
-        </View>
+        
          {/* Password */}
         <ThemedText style={{fontSize:19, marginTop: 20}} type="defaultSemiBold">Password</ThemedText>
         <TextInput
@@ -77,17 +59,9 @@ import { Doodles } from "@/components/Doodles";
         placeholder=""
         // color="white"
         ></TextInput>
-        {/* Confirm Password */}
-        <ThemedText style={{fontSize:19, marginTop: 20,}} type="defaultSemiBold">Confirm Password</ThemedText>
-        <TextInput
-        style={[styles.textInput,{color:BackgroundTextColor, backgroundColor:BackgroundColorInput}]}
-        placeholderTextColor={"gray"}
-        placeholder=""
-        // color="white"
-        ></TextInput>
         </View>
-        <Link href={'/Login'} asChild>
-        <TouchableOpacity style={styles.buttonConatiner}>
+        <Link href={'/HomeScreen'} asChild>
+        <TouchableOpacity onPress={() => router.push('/HomeScreen')} style={styles.buttonConatiner}>
                   <View style={styles.button}>                    
                     <ThemedText style={{ color: "white" }} type="label">
                       Continue
@@ -96,12 +70,12 @@ import { Doodles } from "@/components/Doodles";
             </TouchableOpacity>
             </Link>
             <ThemedText style={{ marginTop: 10, color: BackgroundTextColor }} type="label">
-                      Already have an account? 
-                      <Link href={'/Login'}>
+                      Don't have an account? 
+                      <TouchableOpacity onPress={() => router.back()}>
                       <ThemedText style={{color:'#FE7833'}}>
-                      {' '}Login{' '}
+                      {' '}Sign up{' '}
                       </ThemedText>
-                     </Link>
+                     </TouchableOpacity>
                     </ThemedText>
         
         </View>
